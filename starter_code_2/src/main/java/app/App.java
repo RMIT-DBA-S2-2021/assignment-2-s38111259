@@ -1,5 +1,7 @@
 package app;
  
+import org.thymeleaf.util.Validate;
+
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 
@@ -64,16 +66,16 @@ public class App {
     **/
    public static void configureRoutes(Javalin app) {
       // All webpages are listed here as GET pages
-      app.get(Index.URL, new Index());
-      app.get(Page1.URL, new Page1());
-      app.get(Page2.URL, new Page2());
-      app.get(Page3.URL, new Page3());
+      app.get(Home_Caller.URL, new Home_Caller());
+      app.get(Login.URL, new Login());
+      app.get(page_result.URL, new page_result());
       app.get(Page4.URL, new Page4());
       app.get(Page5.URL, new Page5());
       app.get(Page6.URL, new Page6());
 
       // Add / uncomment POST commands for any pages that need web form POSTS
-      app.post(Index.URL, new Index());
+      app.post(Home.URL, new Home());
+      app.post(Validate_Login.URL, new Validate_Login());
       // app.post(Page1.URL, new Page1());
       app.post(Page2.URL, new Page2());
       app.post(Page3.URL, new Page3());
@@ -81,5 +83,4 @@ public class App {
       // app.post(Page5.URL, new Page5());
       // app.post(Page6.URL, new Page6());
    }
-
 }

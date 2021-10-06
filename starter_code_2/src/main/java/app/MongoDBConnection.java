@@ -21,11 +21,12 @@ public class MongoDBConnection {
     *  copy connection string
     *  if you have time out issues (due to firewalls) choose verion 3.3 or earlier instead
     **/
-   private static final String DATABASE_URL = "YOUR ATLAS SERVER CONNECTION STRING HERE";
+   private static final String DATABASE_URL = "mongodb+srv://s3811259:Mongo%4045@dba-cluster.k7pnl.mongodb.net/test?authSource=admin&replicaSet=atlas-3kiige-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true";
    static MongoClient client;
    MongoDatabase database;
    MongoCollection<Document> allListings;
    private static MongoDBConnection mongodb = null;
+
 
    public static MongoDBConnection getConnection(){
       //check that MongoDBConnection is available (if not establish)
@@ -33,6 +34,18 @@ public class MongoDBConnection {
          mongodb = new MongoDBConnection();
       }
       return mongodb;
+   }
+   /**
+    * @return the allListings
+    */
+   public MongoCollection<Document> getAllListings() {
+      return allListings;
+   }
+   /**
+    * @param allListings the allListings to set
+    */
+   public void setAllListings(MongoCollection<Document> allListings) {
+      this.allListings = allListings;
    }
    public MongoDBConnection() {
       System.out.println("Creating MongoDB Connection Object");

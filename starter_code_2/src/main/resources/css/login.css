@@ -1,0 +1,181 @@
+body {
+    margin: 0px;
+  }
+  
+  .home_disp {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .top-container {
+    position: absolute;
+    top: 7px;
+    left: 4%;
+    font-size: 15px;
+    color: antiquewhite;
+    margin-top: 10px;
+  }
+  
+  .cornerb {
+    font-family: 'Pacifico';
+  }
+  
+  .btn {
+    position: relative;
+    left: 765%;
+    top: -50px;
+    width: 98px;
+    font-size: 18px;
+    font-family: montserrat;
+    font-weight: 500;
+  }
+  
+  .btn:hover {
+    background-color: antiquewhite;
+  }
+  
+  .white-box {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    font-family: 'Montserrat';
+    font-weight: 500;
+  }
+  
+  .field {
+    background-color: antiquewhite;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+  }
+
+  .tag{
+    position: absolute;
+    left: 780%;
+    top: 10%;
+    font-size: 20px;
+  }
+  
+  .white-box-head {
+    width: 68%;
+    padding: 0px;
+    font-family: 'Pacifico';
+    position: absolute;
+    left: 94%;
+    top: 8%;
+    color: lightpink;
+    font-size: 40px;
+  }
+  
+  .white-box-head:hover{
+    color: hotpink;
+  }
+  
+  .submit {
+    right: 0px;
+    left: 35%;
+    top: 82%;
+    width: 28%;
+  }
+  
+  .user-input {
+    position: absolute;
+    top: 38%;
+    left: 79%;
+  }
+  
+  .pass-input {
+    position: absolute;
+    top: 53%;
+    left: 79%;
+  }
+  
+  .contact {
+    margin: 3% 41%;
+    height: 80px;
+    width: 261px;
+    font-family: 'Pacifico';
+    font-size: 54px;
+    color: grey;
+  }
+  
+  .contact:hover {
+    color: darkgrey;
+  }
+  
+  .single-word {
+    font-family: Pacifico;
+    font-size: 35px;
+    color: lightpink
+  }
+  
+  .single-word:hover {
+    color: hotpink;
+  }
+  
+  .bottom-container {
+    margin-left: 43%;
+  }
+  
+  a {
+    padding: 10px;
+    margin-left: 4px;
+    color: hotpink;
+  }
+  
+  a:hover {
+    color: lightpink;
+  }
+  
+  form {
+    width: 265%;
+    height: 320px;
+  }
+  
+
+/* This is for page_result.html */
+
+.stays{
+  position: absolute;
+  top: 25%;
+  left: 36%;
+  font-family: 'Pacifico';
+  font-size: 86px;
+  color: unset;
+}
+
+.divc{
+  float: left;
+  margin: 25px;
+  font-family: 'Montserrat';
+  padding-left: 52px;
+}
+
+.hotel_img{
+  width: 600px;
+}
+h4{
+  margin: 15px 6px;
+}
+
+/* For page_result.html pagination */
+
+/* Pagination links */
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+  

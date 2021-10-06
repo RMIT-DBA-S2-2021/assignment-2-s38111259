@@ -24,56 +24,7 @@ public class Page1 implements Handler {
 
    @Override
    public void handle(Context context) throws Exception {
-      // Create a simple HTML webpage in a String
-      String user = Util.getLoggedInUser(context);
-      //display login form if user is not logged in
-      if(user == null) {
-         context.redirect("/");
-      }
-      else {
-         String html = "<html>\n";
-
-         // Add some Header information
-         html = html + "<head>" + "<title>Page 1: All Apartments</title>\n";
-
-         // Add some CSS (external file)
-         html = html + "<link rel='stylesheet' type='text/css' href='common.css' />\n";
-
-         // Add the body
-         html = html + "<body>\n";
-
-         html = html + "USER: " + "<div>" + user + "</div>";
-         // Add HTML for link back to the homepage
-         html = html + "<h1>Page 1: All apartments</h1>\n";
-         html = html + "<p>Return to Homepage: \n";
-         html = html + "<a href='/'>Link to Homepage</a>\n";
-         html = html + "</p>\n";
-
-         // Look up some information from JDBC
-         // First we need to use your JDBCConnection class
-         MongoDBConnection mongodb = MongoDBConnection.getConnection();
-
-         // Next we will ask this *class* for the movies
-         ArrayList<String> apartments = mongodb.getAllApartmentNames();
-         // Add HTML for the movies list
-         html = html + "<h1>Apartments</h1>" + "<ul>\n";
-
-         // Finally we can print out all of the movies
-         for (String apartment : apartments) {
-            html = html + "<li>" + apartment + "</li>\n";
-         }
-
-         // Finish the List HTML
-         html = html + "</ul>\n";
-
-         // Finish the HTML webpage
-         html = html + "</body>" + "</html>\n";
-
-         // DO NOT MODIFY THIS
-         // Makes Javalin render the webpage
       
-         context.html(html);
+      
       }
    }
-
-}
