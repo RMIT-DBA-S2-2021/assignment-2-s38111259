@@ -32,6 +32,10 @@ public class Home implements Handler {
 
    @Override
    public void handle(Context context) throws Exception {
+
+      String loc = context.formParam("locationxyz");
+      System.out.println(loc+"123");
+      
       Map<String,ArrayList<String>> model = new HashMap<>();
       String location = context.formParam("location");
       String market = context.formParam("market");
@@ -75,6 +79,8 @@ public class Home implements Handler {
       }
       
       String partial = context.formParam("partial");
+      String page = context.formParam("page");
+      
       System.out.println(al.size());
       System.out.println(al);
       int not_null=0;
@@ -90,10 +96,9 @@ public class Home implements Handler {
       
       if(not_null!=0){
          UserSearchServiceImpl userSearchServiceImpl = new UserSearchServiceImpl();
-         ArrayList<String> result = userSearchServiceImpl.getSearchDetail(location, market, accomodates, bedroom, bed, ptype, al, price, review, host, partial);
+         ArrayList<String> result = userSearchServiceImpl.getSearchDetail(location, market, accomodates, bedroom, bed, ptype, al, price, review, host, partial, page);
          model.put("Result", result);  
          context.render("page_result.html",model);
-         
       }
       else{
          // DO NOT MODIFY THIS

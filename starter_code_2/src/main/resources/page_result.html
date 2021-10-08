@@ -15,6 +15,13 @@
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
+  <div >  
+    <span class="hi">hi, </span>        
+    <!-- <h2 th:text="${Username}"></h2> -->
+    <form action="logout.html" method="">
+      <input type="submit" class="submit btn btn-light btn-sm download-button" value="logout">
+    </form>
+  </div>
   <img src="42544.jpg" alt="login" class="home_disp">
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
@@ -23,10 +30,10 @@
     <h1 class="stays">Stays for you</h1>
   </div>
 
-    <h2 id="head" th:text="${Result}"></h2>
+  <h2 id="head" th:text="${Result}"></h2>
 
     <script>
-            var content = document.getElementById("head").innerHTML;
+      var content = document.getElementById("head").innerHTML;
       var new_cont = content.slice(1, content.length-1);
       var Row = new_cont.split("~~, ");
       const name1 = [];
@@ -34,7 +41,20 @@
       var bedroom = [];
       var bed = [];
       var price = [];
-      var tab = [];
+      var summary = [];
+      var street = [];
+      var suburb = [];
+      var government_area = [];
+      var market = [];
+      var country = [];
+      var country_code = [];
+      var review_score = [];
+      var ptype = [];
+      var amenities = [];
+      var accomodates = [];
+      var host = [];
+      var reviews = [];
+
       var count=0;
       var name_counter=0;
       var image_counter = 0;
@@ -47,15 +67,21 @@
         bedroom[name_counter] = column[2];
         bed[name_counter] = column[3];
         price[name_counter] = column[4];
-        tab = column[5];
+        summary[name_counter] = column[5];
+        street[name_counter] = column[6];
+        suburb[name_counter] = column[7];
+        government_area[name_counter] = column[8];
+        market[name_counter] = column[9];
+        country[name_counter] = column[10];
+        country_code[name_counter] = column[11];
+        review_score[name_counter] = column[12];
+        ptype[name_counter] = column[13];
+        amenities[name_counter] = column[14];
+        accomodates[name_counter] = column[15];
+        host[name_counter] = column[16];
+        reviews[name_counter] = column[17];
         name_counter++;
       };
-        console.log("Name: "+name1);
-        console.log("Image: "+image_url);
-        console.log("Bedroom: "+bedroom);
-        console.log("Bed: "+bed);
-        console.log("Price: "+price);
-        console.log("Tab: "+tab);
 
       for(var i=0;i<name1.length;i++){
         var divc = document.createElement("div");
@@ -65,12 +91,15 @@
       };
 
       for(var j=0;j<name1.length;j++){
+
         var element = document.getElementById(j);
         var image = document.createElement("img");
         image.setAttribute("src",image_url[j]);
         image.setAttribute("class","hotel_img");
         var add = document.createElement("a");
-        add.setAttribute("href","#");
+        add.setAttribute("id",j+100);
+        add.setAttribute("onclick","return check("+j+")");
+        add.setAttribute("href","result_display.html");
         var name2 = document.createElement("h4");
         var bedroom1 = document.createElement("h4");
         bedroom1.setAttribute("class","bedroom1");
@@ -91,17 +120,14 @@
         element.appendChild(price1);
         document.body.appendChild(element);
       };
+      function check(i){
+        // ";path=/result_display.html"
+        // + "Image_url=" + image_url[i] + "~~Bedroom=" + bedroom[i] + "~~Bed=" + bed[i] + "~~Price=" + price[i] + "~~Summary=" + summary[i] + "~~Street=" + street[i] + "~~Suburb=" + suburb[i] + "~~government_area=" + government_area[i] + "~~Market=" + market[i] + "~~Country=" + country[i] + "~~Country_code=" + country_code[i] + "~~Review_Score=" + review_score[i] + "~~Ptype=" + ptype[i] + "~~Amenities=" + amenities[i] + "~~Accommodates=" + accomodates[i] + "~~Host=" + host + "~~Reviews=" + reviews[i] +
+        var setcookie = "Name=" + name1[i] + ";path=/result_display.html";
+        console.log(setcookie);
+        document.cookie = setcookie;
+      }
       var myobj = document.getElementById("head");
       myobj.remove();
     </script>
-    <div class="pagination">
-      <a href="#">&laquo;</a>
-      <a href="#">1</a>
-      <a class="active" href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#">&raquo;</a>
-    </div>
 </body>

@@ -17,143 +17,147 @@
 </head>
 
 <body>
-  <img src="42554.jpg" alt="home_vacation" class="home_disp">
+  <img alt="selected_hotel" class="home_disp" id="sel">
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
-
-      <div class="username"th:if="${valid_msg}">  
-        <span class="hi">hi, </span>        
+    <!-- <div class="username"th:if="${valid_msg}">
+        <span class="hi">hi, </span>
         <h2 th:text="${Username}"></h2>
-        <form action="logout.html" method="">
-          <input type="submit" class="submit btn btn-light btn-sm download-button" value="logout">
-        </form>
       </div>
 
-      <div class='response' th:if="${sign}">          
+      <div class='response' th:if="${sign}">
         <form class="tag" action="login.html"> <input type="submit" value="Login" /> </form>
       </div>
 
-      <div class='response' th:if="${err_msg}">          
+      <div class='response' th:if="${err_msg}">
         <h2 th:text="${err_msg}"></h2>
-      </div>
-
+      </div> -->
   </div>
 
-  <div class="white-box">
-    <form class="field" method="POST" action="home.html">
+  <h2 id="display_head" th:text="${display}"></h2>
 
-      <span style="    position: absolute;font-size: 14px;color: darkgrey;top: 5px;">Note: For more than 3 inputs, Location and Review required</span>
-      <h2 class="white-box-head" >Find Aeshtetic places to <br>stay on <span class="single-word"><i class="fas fa-spa"></i>airlite</span></h2>
-      <label for="locationxyz" class="location-label">Location:</label>
-      <input type="text" style="margin-left:27%" class="location-input" name="location" ><br><br>
-      <label for="market" class="market-label">Market:</label>
-      <input type="text" style="margin-left:30%" class="market-input" name="market" ><br><br>
-      <label for="people" class="people-label">Number of Guest:</label>
-      <input type="number" style="margin-left:12%" class="people-input" name="people"><br><br>
-      <label for="bedroom" class="bedroom-label">Number of Bedrooms:</label>
-      <input type="number" style="margin-left:4%" class="bedroom-input" name="bedroom"><br><br>
-      <label for="beds" class="beds-label">Number of Beds:</label>
-      <input type="number" style="margin-left:13%" class="beds-input" name="beds"><br><br>
-      <label for="ptype1" class="ptype-label">Property Type:</label>
-      <select name="ptype">
-        <option style="display:none;"></option>
-        <option value="House">House</option>
-        <option value="Apartment">Apartment</option>
-        <option value="Guesthouse">Guesthouse</option>
-        <option value="Loft">Loft</option>
-        <option value="Condominium">Condominium</option>
-        <option value="Bed and breakfast">Bed and breakfast</option>
-        <option value="Serviced apartment">Serviced apartment</option>
-        <option value="Bungalow">Bungalow</option>
-        <option value="Guest suite">Guest suite</option>
-        <option value="Hostel">Hostel</option>
-        <option value="Townhouse">Townhouse</option>
-        <option value="Villa">Villa</option>
-        
-      </select><br><br>
-      <label for="amenities" class="amenities-label">Available amenities:</label><br>
-      <input type="checkbox" name="TV" value="TV">
-      <label for="amenities1"> TV</label><br>     
-      <input type="checkbox" name="Wifi" value="Wifi">
-      <label for="amenities1"> Wifi</label><br>
-      <input type="checkbox" name="Doorman" value="Doorman">
-      <label for="amenities1"> Doorman</label><br>
-      <input type="checkbox" name="Kitchen" value="Kitchen">
-      <label for="amenities1"> Kitchen</label><br>
-      <input type="checkbox" name="parking" value="parking">
-      <label for="amenities1"> Paid parking off premises</label><br>
-      <input type="checkbox" name="smoking" value="smoking">
-      <label for="amenities1"> Smoking allowed</label><br>
-      <input type="checkbox" name="pets" value="pets">
-      <label for="amenities1"> Pets allowed</label><br>     
-      <input type="checkbox" name="Heating" value="Heating">
-      <label for="amenities1"> Heating</label><br>      
-      <input type="checkbox" name="Washer" value="Washer">
-      <label for="amenities1"> Washer</label><br>
-      <input type="checkbox" name="aid" value="aid">
-      <label for="amenities1"> First aid kit</label><br>
-      <input type="checkbox" name="Fire" value="Fire">
-      <label for="amenities1"> Fire extinguisher</label><br>
-      <input type="checkbox" name="Essentials" value="Essentials">
-      <label for="amenities1"> Essentials</label><br>
-      <input type="checkbox" name="dryer" value="dryer">
-      <label for="amenities1"> Hair dryer</label><br>
-      <input type="checkbox" name="Iron" value="Iron">
-      <label for="amenities1"> Iron</label><br>    
-      <input type="checkbox" name="water" value="water">
-      <label for="amenities1"> Hot water</label><br>
-      <input type="checkbox" name="pillows" value="pillows">
-      <label for="amenities1"> Extra pillows and blankets</label><br>
-      <input type="checkbox" name="Coffee" value="Coffee">
-      <label for="amenities1"> Coffee maker</label><br>
-      <input type="checkbox" name="Refrigerator" value="Refrigerator">
-      <label for="amenities1"> Refrigerator</label><br>
-      <input type="checkbox" name="Dishwasher" value="Dishwasher">
-      <label for="amenities1"> Dishwasher</label><br>
-      <input type="checkbox" name="Dishes" value="Dishes">
-      <label for="amenities1"> Dishes and silverware</label><br>
-      <input type="checkbox" name="Oven" value="Oven">
-      <label for="amenities1"> Oven</label><br>
-      <input type="checkbox" name="Stove" value="Stove">
-      <label for="amenities1"> Stove</label><br>
-      <input type="checkbox" name="Cleaning" value="Cleaning">
-      <label for="amenities1"> Cleaning before checkout</label><br>
-      <input type="checkbox" name="Waterfront" value="Waterfront">
-      <label for="amenities1"> Waterfront</label><br><br>
-      <label for="price" class="price-label">Maximum Price:</label>
-      <input type="number" style="margin-left:13%" placeholder="Enter maximum price" class="price-input" name="price"><br><br>
-      <label for="host1" class="host-label">Host Status:</label>
-      <select name="host">
-        <option style="display:none;"></option>
-        <option value="super">Super Host</option>
-        <option value="Regular-Host">Regular Host</option>
-      </select><br><br>
-      <label for="partial1" class="partial-label" style="padding-right:32px">Partial Wordings:</label>
-      <input type="text" class="partial" name="partial"><br><br>
-      <label for="review" class="review-label" style="padding-right:32px">Ratings:</label>
-      <input type="range" min="0" max="100" name="range" id="sliderRange" class="review">
-     
-      <span id="demo"></span><br><br>
-      <script>
-        var rangeslider = document.getElementById("sliderRange");
-        var output = document.getElementById("demo");
-        output.innerHTML = rangeslider.value;
-      
-        rangeslider.oninput = function() {
-          output.innerHTML = this.value;
-        }
-      
-        </script>
-        
-        <label for="page" class="page-label" style="padding-right:32px">Jump to Page:</label>
-        <input type="number" class="page" placeholder="Default 1" name="page"><br><br>
+  <div class="overall-container" id="result_h">
+    <!-- <h1 class="name">Name</h1>
+    <p class="same summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+      Ipsum faucibus vitae aliquet nec. Id ornare arcu odio ut. Elementum pulvinar etiam non quam lacus.<br>
+      Id venenatis a condimentum vitae sapien pellentesque. Sit amet mattis vulputate enim nulla aliquet porttitor.<br>
+      In pellentesque massa placerat duis ultricies.<br>
+    </p>
+    <h3 class="same address"><i class="fas fa-map-pin"></i> Address</h3>
+    <h3 class="same review"></i>Review Rating</h3>
+    <h3 class="same price">Price</h3>
+    <h3 class="same ptype">Property Type</h3>
+    <h3 class="same amenities">
+      <ul>
+        <li>A1</li>
+        <li>A2</li>
+        <li>A3</li>
+      </ul>
+    </h3>
+    <h3 class="same bedroom">Bedrooms: </h3>
+    <h3 class="same people">People: </h3>
+    <h3 class="same host">Host: </h3>
+    <h3 class="same "></h3> -->
 
-      <input type="submit" class="submit btn btn-light btn-sm download-button" value="Search">
-    </form>
   </div>
+  <script>var content = document.getElementById("display_head").innerHTML;
+    var Row = content.slice(1, content.length-1);
+    column = Row.split("~~");
+    var name = column[0];
+    var image_url = column[1];
+    var bedroom = column[2];
+    var bed = column[3];
+    var price = column[4];
+    var summary = column[5];
+    var street = column[6];
+    var suburb = column[7];
+    var government_area = column[8];
+    var market = column[9];
+    var country = column[10];
+    var country_code = column[11];
+    var review_score = column[12];
+    var ptype = column[13];
+    var accomodates = column[15];
+    var host = column[16];
+    var reviews=[];
 
+    //name
+    var name_h = document.createElement("h1");
+    name_h.innerHTML = name;
+    name_h.setAttribute("class","name");
+    //summary
+    var summary_h = document.createElement("p");
+    summary_h.innerHTML = summary;
+    summary_h.setAttribute("class","same summary");
+    //address
+    var address_h = document.createElement("p");
+    address_h.innerHTML = "<i class='fas fa-map-pin' aria-hidden='true'></i> "+street+"<br> "+suburb+" <br>"+government_area+", "+market+" <br> "+country+", "+country_code;
+    address_h.setAttribute("class","same address");
+    //Ratings
+    var ratings_h = document.createElement("h3");
+    ratings_h.innerHTML = "Ratings: "+review_score;
+    ratings_h.setAttribute("class","same review");
+    //Price
+    var price_h = document.createElement("h3");
+    price_h.innerHTML = "Price: "+price+"$";
+    price_h.setAttribute("class","same price");
+    //ptype
+    var ptype_h = document.createElement("h3");
+    ptype_h.innerHTML = "Property Type: "+ptype;
+    ptype_h.setAttribute("class","same ptype");
+    //amenities
+    var amen1=column[14];
+    var new_amen = amen1.slice(1, amen1.length-1);
+    var amenities = new_amen.split(", ");
+    var amen_h = document.createElement("h5");
+    amen_h.setAttribute("class","same amenities");
+    var ul_h = document.createElement("ul");
+    for(var i=0;i<amenities.length;i++){
+          var li_h = document.createElement("li");
+          li_h.innerHTML=amenities[i];
+          ul_h.appendChild(li_h);
+    }
+    amen_h.appendChild(ul_h);
+    //bedroom
+    var bedroom_h = document.createElement("h3");
+    bedroom_h.innerHTML = "Bedroom: "+bedroom;
+    bedroom_h.setAttribute("class","same bedroom");
+    //people
+    var people_h = document.createElement("h3");
+    people_h.innerHTML = "Guests: "+accomodates;
+    people_h.setAttribute("class","same people");
+    //host
+    var host_h = document.createElement("h3");
+    if(host=='true'){
+          host_h.innerHTML = "Super Host";
+    }
+    else{
+          host_h.innerHTML = "Regular Host";
+    }
+    host_h.setAttribute("class","same host");
+
+    //image
+    var image_h = document.getElementById("sel");
+    image_h.setAttribute("src",image_url);
+
+    var cont = document.getElementById("result_h");
+    cont.appendChild(name_h);
+    cont.appendChild(summary_h);
+    cont.appendChild(address_h);
+    cont.appendChild(ratings_h);
+    cont.appendChild(price_h);
+    cont.appendChild(ptype_h);
+    
+    cont.appendChild(amen_h);
+    cont.appendChild(bedroom_h);
+    cont.appendChild(people_h);
+    cont.appendChild(host_h);
+    var myobj = document.getElementById("display_head");
+    myobj.remove();
+    </script>
   <div class="bottom-div">
-  <h2 class="contact">Contact us</h2>
+    <h2 class="contact">Contact us</h2>
     <div class="bottom-container">
       <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://www.facebook.com/preetchoudhary17901/"><i class="fab fa-facebook f" aria-hidden="true"></i></a>
@@ -162,7 +166,7 @@
       <p>© 2021 Preet Choudhary</p>
     </div>
   </div>
-  
+
 </body>
 
 </html>

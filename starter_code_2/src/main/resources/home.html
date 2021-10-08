@@ -24,6 +24,9 @@
       <div class="username"th:if="${valid_msg}">  
         <span class="hi">hi, </span>        
         <h2 th:text="${Username}"></h2>
+        <form action="logout.html" method="">
+          <input type="submit" class="submit btn btn-light btn-sm download-button" value="logout">
+        </form>
       </div>
 
       <div class='response' th:if="${sign}">          
@@ -38,8 +41,10 @@
 
   <div class="white-box">
     <form class="field" method="POST" action="home.html">
-      <h2 class="white-box-head">Find Aeshtetic places to <br>stay on <span class="single-word"><i class="fas fa-spa"></i>airlite</span></h2>
-      <label for="location" class="location-label">Location:</label>
+
+      <span style="    position: absolute;font-size: 14px;color: darkgrey;top: 5px;">Note: For more than 3 inputs, Location and Review required</span>
+      <h2 class="white-box-head" >Find Aeshtetic places to <br>stay on <span class="single-word"><i class="fas fa-spa"></i>airlite</span></h2>
+      <label for="locationxyz" class="location-label">Location:</label>
       <input type="text" style="margin-left:27%" class="location-input" name="location" ><br><br>
       <label for="market" class="market-label">Market:</label>
       <input type="text" style="margin-left:30%" class="market-input" name="market" ><br><br>
@@ -49,7 +54,7 @@
       <input type="number" style="margin-left:4%" class="bedroom-input" name="bedroom"><br><br>
       <label for="beds" class="beds-label">Number of Beds:</label>
       <input type="number" style="margin-left:13%" class="beds-input" name="beds"><br><br>
-      <label for="ptype" class="ptype-label">Property Type:</label>
+      <label for="ptype1" class="ptype-label">Property Type:</label>
       <select name="ptype">
         <option style="display:none;"></option>
         <option value="House">House</option>
@@ -123,7 +128,8 @@
         <option value="super">Super Host</option>
         <option value="Regular-Host">Regular Host</option>
       </select><br><br>
-
+      <label for="partial1" class="partial-label" style="padding-right:32px">Partial Wordings:</label>
+      <input type="text" class="partial" name="partial"><br><br>
       <label for="review" class="review-label" style="padding-right:32px">Ratings:</label>
       <input type="range" min="0" max="100" name="range" id="sliderRange" class="review">
      
@@ -138,8 +144,9 @@
         }
       
         </script>
-        <label for="partial1" class="partial-label" style="padding-right:32px">Partial Wordings:</label>
-        <input type="text" class="partial" name="partial">
+        
+        <label for="page" class="page-label" style="padding-right:32px">Jump to Page:</label>
+        <input type="number" class="page" placeholder="Default 1" name="page"><br><br>
 
       <input type="submit" class="submit btn btn-light btn-sm download-button" value="Search">
     </form>

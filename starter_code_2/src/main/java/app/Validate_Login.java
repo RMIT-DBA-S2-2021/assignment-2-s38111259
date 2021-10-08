@@ -62,15 +62,7 @@ public class Validate_Login implements Handler {
  }
 
 
-    // logout the current user by removing their cookie and session id details
-    public void logout(Context context) {
-        String id = context.cookie("id");
-        context.sessionAttribute(id);
-        context.removeCookie("id");
-        context.sessionAttribute(id, null);
-        // reload the page
-        context.redirect("/");
-    }
+    
 
  // login the user by creating a random user id and associating in their cookie and session 
     public void login(Context context, String username){

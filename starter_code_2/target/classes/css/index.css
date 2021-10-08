@@ -64,7 +64,7 @@ body {
   #demo{
     position: absolute;
     left: 60%;
-    bottom: 146px;
+    bottom: 166px;
   }
   .tag{
     position: absolute;
@@ -129,6 +129,37 @@ body {
     color: lightpink;
   }
   
+/* For result page */
+.overall-container {
+      background-color: currentcolor;
+      width: 39%;
+      margin: 4% 30%;
+      padding-top: 1px;
+      padding-bottom: 1px;
+}
 
+.name {
+  margin: 9% 13%;
+    text-align: center;
+    font-size: 240%;
+    font-family: 'Pacifico';
+    color: white;
+}
+
+.summary{
+margin: 5% 5%;
+color: white;
+}
+
+.same{
+  margin: 7% 7%;
+  font-family: 'Montserrat';
+  color: white;
+
+}
+
+.bottom-div{
+  margin-top: 50%;
+}
 
   

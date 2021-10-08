@@ -1,6 +1,10 @@
 package app;
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.Cookie;
@@ -10,7 +14,6 @@ public class page_result implements Handler {
 
    @Override
    public void handle(Context context) throws Exception {
-      
       context.render(TEMPLATE);
     }
 }
