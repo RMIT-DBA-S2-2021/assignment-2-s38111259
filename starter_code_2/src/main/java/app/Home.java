@@ -1,16 +1,10 @@
 package app;
-
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
-import javax.servlet.http.Cookie;
-import javax.sound.midi.Receiver;
-
 import app.service.UserSearchServiceImpl;
 
 /**
@@ -32,10 +26,6 @@ public class Home implements Handler {
 
    @Override
    public void handle(Context context) throws Exception {
-
-      String loc = context.formParam("locationxyz");
-      System.out.println(loc+"123");
-      
       Map<String,ArrayList<String>> model = new HashMap<>();
       String location = context.formParam("location");
       String market = context.formParam("market");

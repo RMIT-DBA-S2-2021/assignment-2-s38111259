@@ -17,7 +17,6 @@
 <body>
   <div >  
     <span class="hi">hi, </span>        
-    <!-- <h2 th:text="${Username}"></h2> -->
     <form action="logout.html" method="">
       <input type="submit" class="submit btn btn-light btn-sm download-button" value="logout">
     </form>
@@ -121,8 +120,6 @@
         document.body.appendChild(element);
       };
       function check(i){
-        // ";path=/result_display.html"
-        // + "Image_url=" + image_url[i] + "~~Bedroom=" + bedroom[i] + "~~Bed=" + bed[i] + "~~Price=" + price[i] + "~~Summary=" + summary[i] + "~~Street=" + street[i] + "~~Suburb=" + suburb[i] + "~~government_area=" + government_area[i] + "~~Market=" + market[i] + "~~Country=" + country[i] + "~~Country_code=" + country_code[i] + "~~Review_Score=" + review_score[i] + "~~Ptype=" + ptype[i] + "~~Amenities=" + amenities[i] + "~~Accommodates=" + accomodates[i] + "~~Host=" + host + "~~Reviews=" + reviews[i] +
         var setcookie = "Name=" + name1[i] + ";path=/result_display.html";
         console.log(setcookie);
         document.cookie = setcookie;

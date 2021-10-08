@@ -1,7 +1,4 @@
 package app;
- 
-import org.thymeleaf.util.Validate;
-
 import io.javalin.Javalin;
 import io.javalin.core.util.RouteOverviewPlugin;
 
@@ -75,8 +72,5 @@ public class App {
       // Add / uncomment POST commands for any pages that need web form POSTS
       app.post(Home.URL, new Home());
       app.post(Validate_Login.URL, new Validate_Login());
-      // app.post(Page1.URL, new Page1());
-      app.post(Page2.URL, new Page2());
-      app.post(Page3.URL, new Page3());
    }
 }

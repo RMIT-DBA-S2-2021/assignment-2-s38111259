@@ -17,7 +17,6 @@ public class UserResultDaoImpl {
         MongoCursor<Document> cursor;
         MongoCollection<Document> allListings = mongodb.getAllListings();
         cursor = allListings.find(eq("name", name)).projection(fields(include("name", "summary", "review_scores", "reviews", "property_type", "amenities", "accommodates", "host.host_is_superhost", "address","images","bedrooms","beds","price"), exclude("_id"))).iterator();
-
         ArrayList<String> result = new ArrayList<String>();
         try {
          while (cursor.hasNext()) {
@@ -34,11 +33,15 @@ public class UserResultDaoImpl {
             String rec_amenities = record.get("amenities").toString();
             String rec_accomodates = record.get("accommodates").toString();
             Document rec_host = (Document) record.get("host");
-            String rec_reviews = record.get("reviews").toString();
-
+            ArrayList<Document> rec_reviews = (ArrayList<Document>) record.get("reviews");
+            String all_review_info = "";
+            for (Document docs_review : rec_reviews) {
+                String reviewer_name = (String) docs_review.get("reviewer_name");
+                String reviewer_comment = (String) docs_review.get("comments");
+                all_review_info=all_review_info + reviewer_name + "~~" + reviewer_comment + "~~";
+            }
             String final_result = rec_name + "~~" + (rec_images.get("picture_url")) + "~~" + rec_bedroom + "~~" + rec_bed + "~~" + rec_price + "~~" + rec_summary + "~~" + (rec_address.get("street")) + "~~" + (rec_address.get("suburb")) + "~~" + (rec_address.get("government_area")) + "~~" + (rec_address.get("market")) + "~~" + (rec_address.get("country")) + "~~" + (rec_address.get("country_code") + "~~");
-            final_result = final_result + (rec_review_score.get("review_scores_rating")) + "~~" + rec_ptype + "~~" + rec_amenities + "~~" + rec_accomodates + "~~" + (rec_host.get("host_is_superhost")) + "~~" + rec_reviews + "~~";
-            System.out.println(final_result);
+            final_result = final_result + (rec_review_score.get("review_scores_rating")) + "~~" + rec_ptype + "~~" + rec_amenities + "~~" + rec_accomodates + "~~" + (rec_host.get("host_is_superhost")) + "~~" + all_review_info;
             result.add(final_result);
          }
 

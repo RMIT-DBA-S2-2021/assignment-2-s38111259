@@ -9,6 +9,8 @@ import java.util.UUID;
 
 import javax.servlet.http.Cookie;
 
+// import app.service.UserCheckServiceImpl;
+
 /**
  * Example Index HTML class using Javalin
  * <p>
@@ -23,8 +25,8 @@ public class Validate_Login implements Handler {
    // URL of this page relative to http://localhost:7000/
    public static final String URL = "/validate_login.html";
    public static final String TEMPLATE = "home.html";
-   public static String usernames[] = {"halil", "bill"};
-   public static String passwords[] = {"halilpass", "billpass"};
+//    public static String usernames[] = {"halil", "bill"};
+//    public static String passwords[] = {"halilpass", "billpass"};
 
    @Override
    public void handle(Context context) throws Exception {
@@ -49,16 +51,19 @@ public class Validate_Login implements Handler {
     }
 
     // check if username and password matches agains array of users (in your code, this needs to query the database)
-   public boolean checkPassword(Context context, String username, String password){
-    boolean passwordMatchFound = false;
-    for(int i=0; i<usernames.length; i++){
-       if(usernames[i].equalsIgnoreCase(username) && passwords[i].equals(password)){
-          // match found - login the user
-          login(context, username);
-          passwordMatchFound = true;
-       } 
-    }
-    return passwordMatchFound;
+   public boolean checkPassword(Context context, String id, String name){
+    // UserCheckServiceImpl userCheckServiceImpl = new UserCheckServiceImpl();
+    
+    // for(int i=0; i<usernames.length; i++){
+    //    if(usernames[i].equalsIgnoreCase(username) && passwords[i].equals(password)){
+    //       // match found - login the user
+    //       login(context, username);
+    //       passwordMatchFound = true;
+    //    } 
+    // }
+
+    // return userCheckServiceImpl.getCheckResult(name);
+    return false;
  }
 
 

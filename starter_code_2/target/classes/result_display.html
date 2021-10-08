@@ -20,46 +20,9 @@
   <img alt="selected_hotel" class="home_disp" id="sel">
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
-    <!-- <div class="username"th:if="${valid_msg}">
-        <span class="hi">hi, </span>
-        <h2 th:text="${Username}"></h2>
-      </div>
-
-      <div class='response' th:if="${sign}">
-        <form class="tag" action="login.html"> <input type="submit" value="Login" /> </form>
-      </div>
-
-      <div class='response' th:if="${err_msg}">
-        <h2 th:text="${err_msg}"></h2>
-      </div> -->
   </div>
-
   <h2 id="display_head" th:text="${display}"></h2>
-
   <div class="overall-container" id="result_h">
-    <!-- <h1 class="name">Name</h1>
-    <p class="same summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
-      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-      Ipsum faucibus vitae aliquet nec. Id ornare arcu odio ut. Elementum pulvinar etiam non quam lacus.<br>
-      Id venenatis a condimentum vitae sapien pellentesque. Sit amet mattis vulputate enim nulla aliquet porttitor.<br>
-      In pellentesque massa placerat duis ultricies.<br>
-    </p>
-    <h3 class="same address"><i class="fas fa-map-pin"></i> Address</h3>
-    <h3 class="same review"></i>Review Rating</h3>
-    <h3 class="same price">Price</h3>
-    <h3 class="same ptype">Property Type</h3>
-    <h3 class="same amenities">
-      <ul>
-        <li>A1</li>
-        <li>A2</li>
-        <li>A3</li>
-      </ul>
-    </h3>
-    <h3 class="same bedroom">Bedrooms: </h3>
-    <h3 class="same people">People: </h3>
-    <h3 class="same host">Host: </h3>
-    <h3 class="same "></h3> -->
-
   </div>
   <script>var content = document.getElementById("display_head").innerHTML;
     var Row = content.slice(1, content.length-1);
@@ -80,7 +43,6 @@
     var ptype = column[13];
     var accomodates = column[15];
     var host = column[16];
-    var reviews=[];
 
     //name
     var name_h = document.createElement("h1");
@@ -92,7 +54,7 @@
     summary_h.setAttribute("class","same summary");
     //address
     var address_h = document.createElement("p");
-    address_h.innerHTML = "<i class='fas fa-map-pin' aria-hidden='true'></i> "+street+"<br> "+suburb+" <br>"+government_area+", "+market+" <br> "+country+", "+country_code;
+    address_h.innerHTML = "<i class='fas fa-map-pin' aria-hidden='true'></i><br>"+street+"<br> "+suburb+" <br>"+government_area+", "+market+" <br> "+country+", "+country_code;
     address_h.setAttribute("class","same address");
     //Ratings
     var ratings_h = document.createElement("h3");
@@ -136,6 +98,44 @@
           host_h.innerHTML = "Regular Host";
     }
     host_h.setAttribute("class","same host");
+    //reviews
+    
+    var counter=0;
+      var reviewer_db=[];
+      var rev_name=[];
+      var rev_comment=[];
+      var rev_name_counter=0;
+      var rev_comment_counter=0;
+      for(var i=17;i<column.length-1;i++){
+            reviewer_db[counter]=column[i];
+            counter++;
+      }
+        
+      for(var i=0;i<reviewer_db.length;i++){
+        if(i%2==0){
+              rev_name[rev_name_counter]=reviewer_db[i];
+              rev_name_counter++;
+            }
+            else{
+              rev_comment[rev_comment_counter]=reviewer_db[i];
+              rev_comment_counter++
+            }
+      }
+      console.log(rev_name[0]);
+      console.log(rev_comment);
+      var review_h = document.createElement("h3");
+      review_h.innerHTML="Review: ";
+      review_h.setAttribute("class","same review");
+      var revr = document.createElement("p");
+      revr.setAttribute("class","same");
+      var ul2 = document.createElement("ul");
+      for(var i=0;i<rev_name.length;i++){
+              var li4 = document.createElement("li");
+              li4.innerHTML = rev_name[i]+"<br>"+rev_comment[i];
+              li4.setAttribute("class","li4");
+              ul2.appendChild(li4);
+      }
+      revr.appendChild(ul2);
 
     //image
     var image_h = document.getElementById("sel");
@@ -153,6 +153,8 @@
     cont.appendChild(bedroom_h);
     cont.appendChild(people_h);
     cont.appendChild(host_h);
+    cont.appendChild(review_h);
+    cont.appendChild(revr);
     var myobj = document.getElementById("display_head");
     myobj.remove();
     </script>
@@ -166,7 +168,5 @@
       <p>© 2021 Preet Choudhary</p>
     </div>
   </div>
-
 </body>
-
 </html>
