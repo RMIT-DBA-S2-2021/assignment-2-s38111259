@@ -5,9 +5,6 @@ import io.javalin.http.Handler;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-
-import javax.servlet.http.Cookie;
 
 /**
  * Example Index HTML class using Javalin
@@ -24,8 +21,6 @@ public class Home_Caller implements Handler {
    public static final String URL = "/";
    public static final String TEMPLATE = "home.html";
    public static final String LOGIN = "login.html";
-   public static String usernames[] = {"halil", "bill"};
-   public static String passwords[] = {"halilpass", "billpass"};
 
    @Override
    public void handle(Context context) throws Exception {

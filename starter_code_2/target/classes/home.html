@@ -22,15 +22,17 @@
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
 
       <div class="username"th:if="${valid_msg}">  
-        <span class="hi">hi, </span>        
-        <h2 th:text="${Username}"></h2>
-        <form action="logout.html" method="">
-          <input type="submit" class="submit btn btn-light btn-sm download-button" value="logout">
+        <span class="hi">hi,</span>        
+        <h2 th:text=" ${Username}"></h2>
+        <form action="logout.html" method="" class="lo_form">
+          <input type="submit" class="submit lo btn btn-light btn-sm download-button" value="logout">
         </form>
       </div>
 
       <div class='response' th:if="${sign}">          
-        <form class="tag" action="login.html"> <input type="submit" value="Login" /> </form>
+        <form class="tag" action="login.html"> 
+          <input type="submit" class="submit lo btn btn-light btn-sm download-button" value="Login" /> 
+        </form>
       </div>
 
       <div class='response' th:if="${err_msg}">          

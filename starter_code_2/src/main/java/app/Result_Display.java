@@ -11,14 +11,17 @@ public class Result_Display implements Handler {
    // URL of this page relative to http://localhost:7000/
    public static final String URL = "/result_display.html";
    public static final String TEMPLATE = "result_display.html";
+   static Cookie[] cookies;
    @Override
    public void handle(Context context) throws Exception {
       Map<String,ArrayList<String>> model = new HashMap<>();
-      Cookie[] cookies = context.req.getCookies();
+      cookies = context.req.getCookies();
       Cookie cookie = cookies[0];
-      System.out.println(cookie.getValue());
       UserResultServiceImpl userResultServiceImpl = new UserResultServiceImpl();
       ArrayList<String> display = userResultServiceImpl.getResultDetail(cookie.getValue());
+      display.add(context.sessionAttribute("username_id"));
+      display.add(context.sessionAttribute("lo"));
+      System.out.println(context.sessionAttribute("username_id")+" I am the key");
       model.put("display", display);
       context.render(TEMPLATE,model);
    }

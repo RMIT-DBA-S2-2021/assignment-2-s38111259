@@ -18,14 +18,21 @@
   <img src="42564.jpg" alt="login" class="home_disp">
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
-    <form class="tag" action="/"> <input type="submit" value="Home" /> </form>
+    <form class="tag" action="/"> 
+      <input type="submit"  class="submit lo btn btn-light btn-sm download-button" value="Home" /> 
+    </form>
   </div>
+
+  
 
   <div class="white-box">
     <form class="field" action="validate_login.html" method="post">
+      <div class='response' th:if="${err_msg}" style="position: absolute;left: 74%;width: 232px;top: 65%;">          
+        <p class="err_msg" th:text="${err_msg}"></p>
+      </div>
       <h2 class="white-box-head">Sign in</h2>
       <input type="text" class="user-input" name="username" placeholder="Username" value=""><br>
-      <input type="text" class="pass-input" name="pass" placeholder="Password" value="">
+      <input type="text" class="pass-input" name="pass" placeholder="UserID" value="">
       <input type="submit" class="submit btn btn-light btn-sm download-button" value="Search">
     </form>
   </div>

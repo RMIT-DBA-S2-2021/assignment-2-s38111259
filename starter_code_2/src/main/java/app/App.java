@@ -67,7 +67,7 @@ public class App {
       app.get(Login.URL, new Login());
       app.get(page_result.URL, new page_result());
       app.get(Result_Display.URL, new Result_Display());
-      app.get(logout.URL, new logout());
+      app.get(Logout.URL, new Logout());
 
       // Add / uncomment POST commands for any pages that need web form POSTS
       app.post(Home.URL, new Home());

@@ -1,14 +1,9 @@
 package app;
-
 import io.javalin.http.Context;
 import io.javalin.http.Handler;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
-
-import javax.servlet.http.Cookie;
-
+import app.service.UserCheckServiceImpl;
 // import app.service.UserCheckServiceImpl;
 
 /**
@@ -25,8 +20,6 @@ public class Validate_Login implements Handler {
    // URL of this page relative to http://localhost:7000/
    public static final String URL = "/validate_login.html";
    public static final String TEMPLATE = "home.html";
-//    public static String usernames[] = {"halil", "bill"};
-//    public static String passwords[] = {"halilpass", "billpass"};
 
    @Override
    public void handle(Context context) throws Exception {
@@ -36,44 +29,30 @@ public class Validate_Login implements Handler {
       
     if(username!=null && password!=null){
         if(checkPassword(context, username, password)){
+            context.sessionAttribute("username_id", username);
+            context.sessionAttribute("lo",", xyz");
             String msg = "Valid";
             model.put("valid_msg", msg);
-            model.put("Username", username);
+            model.put("Username", context.sessionAttribute("username_id"));
+            model.put("lo_button", context.sessionAttribute("lo"));
+            // Cookie cookie = new Cookie("Username", username);
+            // cookie.setPath("/result_display.html");
+            // context.res.addCookie(cookie);
+            // context.res.
             context.render(TEMPLATE,model);
             }
         else{
+            System.out.println("invalid");
             String msg = "Invalid Username/Password";
             model.put("err_msg", msg);
             context.render("login.html",model);
             }
         }
-        context.render(TEMPLATE);
     }
 
     // check if username and password matches agains array of users (in your code, this needs to query the database)
-   public boolean checkPassword(Context context, String id, String name){
-    // UserCheckServiceImpl userCheckServiceImpl = new UserCheckServiceImpl();
-    
-    // for(int i=0; i<usernames.length; i++){
-    //    if(usernames[i].equalsIgnoreCase(username) && passwords[i].equals(password)){
-    //       // match found - login the user
-    //       login(context, username);
-    //       passwordMatchFound = true;
-    //    } 
-    // }
-
-    // return userCheckServiceImpl.getCheckResult(name);
-    return false;
- }
-
-
-    
-
- // login the user by creating a random user id and associating in their cookie and session 
-    public void login(Context context, String username){
-        String id = UUID.randomUUID().toString();
-//      context.sessionAttribute("id", id);
-        context.sessionAttribute(id, username);
-        context.cookie("id", id);
- }
+   public boolean checkPassword(Context context, String name, String id){
+    UserCheckServiceImpl userCheckServiceImpl = new UserCheckServiceImpl();
+    return userCheckServiceImpl.getCheckResult(name, id);
+   }
 }

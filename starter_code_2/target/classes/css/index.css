@@ -57,7 +57,7 @@ body {
   }
   .username{
     position: relative;
-    left: 806%;
+    left: 762%;
     bottom: 48px;
     font-family: 'Pacifico';
   }
@@ -163,7 +163,7 @@ color: white;
   margin-top: 50%;
 }
 
-.fas{
+.ad{
   font-size: 30px;
 }
 
@@ -171,3 +171,12 @@ color: white;
   margin: 5% 0%;
 }
   
+.lo{
+  width: 112%;
+}
+
+.lo_form{
+  position: absolute;
+    left: 63%;
+    top: -15%;
+}

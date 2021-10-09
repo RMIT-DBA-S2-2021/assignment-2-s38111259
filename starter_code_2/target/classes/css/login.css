@@ -51,9 +51,10 @@ body {
 
   .tag{
     position: absolute;
-    left: 780%;
-    top: 10%;
+    left: 738%;
+    bottom: -23%;
     font-size: 20px;
+    width: 200%;
   }
   
   .white-box-head {

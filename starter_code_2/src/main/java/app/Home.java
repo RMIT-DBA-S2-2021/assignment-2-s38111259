@@ -4,7 +4,6 @@ import io.javalin.http.Handler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 import app.service.UserSearchServiceImpl;
 
 /**
@@ -17,22 +16,21 @@ import app.service.UserSearchServiceImpl;
  * @author Santha Sumanasekara, 2021. email: santha.sumanasekara@rmit.edu.au
  */
 public class Home implements Handler {
-
    // URL of this page relative to http://localhost:7000/
    public static final String URL = "/home.html";
    public static final String TEMPLATE = "home.html";
    public static final String LOGIN = "login.html";
-
-
    @Override
    public void handle(Context context) throws Exception {
       Map<String,ArrayList<String>> model = new HashMap<>();
+      //taking parameters from the input tags
       String location = context.formParam("location");
       String market = context.formParam("market");
       String accomodates = context.formParam("people");
       String bedroom = context.formParam("bedroom");
       String bed = context.formParam("beds");
       String ptype = context.formParam("ptype");
+      //for amenities
       String TV = context.formParam("TV");
       String DM = context.formParam("Doorman");
       String Wifi = context.formParam("Wifi");
@@ -57,6 +55,7 @@ public class Home implements Handler {
       String Stove = context.formParam("Stove");
       String Cleaning = context.formParam("Cleaning");
       String Waterfront = context.formParam("Waterfront");
+      //for price
       String price = context.formParam("price");
       String review = context.formParam("range");
       String host = context.formParam("host");
@@ -67,14 +66,13 @@ public class Home implements Handler {
             al.add(amenities[i]);
          }
       }
-      
+      //for partial
       String partial = context.formParam("partial");
+      //for pagination
       String page = context.formParam("page");
-      
-      System.out.println(al.size());
-      System.out.println(al);
       int not_null=0;
       String values[] = {location,market,accomodates,bedroom,bed,ptype,price,host,review,partial};
+      //checking for null
       for(int i=0;i<values.length;i++){
          if(values[i]!=null && !values[i].isEmpty()){
             not_null++;
@@ -83,7 +81,7 @@ public class Home implements Handler {
       if(al.size()!=0){
          not_null++;
       }
-      
+      //when user puts in parameters
       if(not_null!=0){
          UserSearchServiceImpl userSearchServiceImpl = new UserSearchServiceImpl();
          ArrayList<String> result = userSearchServiceImpl.getSearchDetail(location, market, accomodates, bedroom, bed, ptype, al, price, review, host, partial, page);
@@ -95,23 +93,5 @@ public class Home implements Handler {
          // Makes Javalin render the webpage
          context.render(TEMPLATE);
       }
-   }
-
-   // logout the current user by removing their cookie and session id details
-   public void logout(Context context) {
-      String id = context.cookie("id");
-      context.sessionAttribute(id);
-      context.removeCookie("id");
-      context.sessionAttribute(id, null);
-      // reload the page
-      context.redirect("/");
-   }
-
-   // login the user by creating a random user id and associating in their cookie and session 
-   public void login(Context context, String username){
-      String id = UUID.randomUUID().toString();
-//      context.sessionAttribute("id", id);
-      context.sessionAttribute(id, username);
-      context.cookie("id", id);
    }
 }

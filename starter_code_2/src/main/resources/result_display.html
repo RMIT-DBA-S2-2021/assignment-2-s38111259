@@ -17,10 +17,12 @@
 </head>
 
 <body>
+  
   <img alt="selected_hotel" class="home_disp" id="sel">
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
   </div>
+  <div id="lo"></div>
   <h2 id="display_head" th:text="${display}"></h2>
   <div class="overall-container" id="result_h">
   </div>
@@ -43,6 +45,20 @@
     var ptype = column[13];
     var accomodates = column[15];
     var host = column[16];
+    var match = column[column.length-1].slice(9,14);
+    if(match==", xyz"){
+        
+        console.log("hi");
+        var lo_form = document.createElement("form");
+        lo_form.setAttribute("action","logout.html");
+        var sub_but = document.createElement("input");
+        sub_but.setAttribute("type","submit");
+        sub_but.setAttribute("class","sub_but");
+        sub_but.setAttribute("value","Logout");
+        lo_form.appendChild(sub_but);
+        var lo_cont = document.getElementById("lo");
+        lo_cont.appendChild(lo_form);
+    }
 
     //name
     var name_h = document.createElement("h1");
@@ -54,7 +70,7 @@
     summary_h.setAttribute("class","same summary");
     //address
     var address_h = document.createElement("p");
-    address_h.innerHTML = "<i class='fas fa-map-pin' aria-hidden='true'></i><br>"+street+"<br> "+suburb+" <br>"+government_area+", "+market+" <br> "+country+", "+country_code;
+    address_h.innerHTML = "<i class='fas ad fa-map-pin' aria-hidden='true'></i><br>"+street+"<br> "+suburb+" <br>"+government_area+", "+market+" <br> "+country+", "+country_code;
     address_h.setAttribute("class","same address");
     //Ratings
     var ratings_h = document.createElement("h3");
@@ -121,8 +137,6 @@
               rev_comment_counter++
             }
       }
-      console.log(rev_name[0]);
-      console.log(rev_comment);
       var review_h = document.createElement("h3");
       review_h.innerHTML="Review: ";
       review_h.setAttribute("class","same review");
