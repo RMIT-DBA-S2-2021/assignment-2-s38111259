@@ -1,15 +1,10 @@
 package app.dao;
-
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Projections.*;
 import org.bson.Document;
-
-
 import java.util.ArrayList;
-
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-
 import app.MongoDBConnection;
 public class UserResultDaoImpl {
     public ArrayList<String> getSearchDB(String name){
@@ -44,7 +39,6 @@ public class UserResultDaoImpl {
             final_result = final_result + (rec_review_score.get("review_scores_rating")) + "~~" + rec_ptype + "~~" + rec_amenities + "~~" + rec_accomodates + "~~" + (rec_host.get("host_is_superhost")) + "~~" + all_review_info;
             result.add(final_result);
          }
-
       }
       finally {
          cursor.close();

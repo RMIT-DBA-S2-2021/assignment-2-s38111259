@@ -17,7 +17,6 @@
 </head>
 
 <body>
-  
   <img alt="selected_hotel" class="home_disp" id="sel">
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
@@ -45,9 +44,14 @@
     var ptype = column[13];
     var accomodates = column[15];
     var host = column[16];
-    var match = column[column.length-1].slice(9,14);
+    var match = column[column.length-1].slice(8,14);
     if(match==", xyz"){
-        
+        var list_rname=column[column.length-1].slice(2,column[column.length-1].length-7);
+        var past_rev = document.createElement("a");
+        past_rev.setAttribute("id","allr");
+        past_rev.setAttribute("href","reviews_display.html");
+        console.log(list_rname);
+        past_rev.innerHTML = "Your Reviews"
         console.log("hi");
         var lo_form = document.createElement("form");
         lo_form.setAttribute("action","logout.html");
@@ -58,8 +62,12 @@
         lo_form.appendChild(sub_but);
         var lo_cont = document.getElementById("lo");
         lo_cont.appendChild(lo_form);
+        lo_cont.appendChild(past_rev);
+        //function for anchor tag for list of reviews
+        var setcookie = "Name=" + list_rname + ";path=/reviews_display.html";
+        console.log(setcookie);
+        document.cookie = setcookie;
     }
-
     //name
     var name_h = document.createElement("h1");
     name_h.innerHTML = name;
@@ -115,7 +123,6 @@
     }
     host_h.setAttribute("class","same host");
     //reviews
-    
     var counter=0;
       var reviewer_db=[];
       var rev_name=[];
@@ -126,7 +133,6 @@
             reviewer_db[counter]=column[i];
             counter++;
       }
-        
       for(var i=0;i<reviewer_db.length;i++){
         if(i%2==0){
               rev_name[rev_name_counter]=reviewer_db[i];
@@ -150,11 +156,11 @@
               ul2.appendChild(li4);
       }
       revr.appendChild(ul2);
-
     //image
     var image_h = document.getElementById("sel");
     image_h.setAttribute("src",image_url);
-
+    
+    //Setting the values in result_h
     var cont = document.getElementById("result_h");
     cont.appendChild(name_h);
     cont.appendChild(summary_h);
@@ -162,7 +168,6 @@
     cont.appendChild(ratings_h);
     cont.appendChild(price_h);
     cont.appendChild(ptype_h);
-    
     cont.appendChild(amen_h);
     cont.appendChild(bedroom_h);
     cont.appendChild(people_h);

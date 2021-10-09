@@ -11,11 +11,10 @@ public class Result_Display implements Handler {
    // URL of this page relative to http://localhost:7000/
    public static final String URL = "/result_display.html";
    public static final String TEMPLATE = "result_display.html";
-   static Cookie[] cookies;
    @Override
    public void handle(Context context) throws Exception {
       Map<String,ArrayList<String>> model = new HashMap<>();
-      cookies = context.req.getCookies();
+      Cookie[] cookies = context.req.getCookies();
       Cookie cookie = cookies[0];
       UserResultServiceImpl userResultServiceImpl = new UserResultServiceImpl();
       ArrayList<String> display = userResultServiceImpl.getResultDetail(cookie.getValue());
