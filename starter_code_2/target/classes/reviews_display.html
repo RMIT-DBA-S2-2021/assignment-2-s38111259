@@ -21,6 +21,7 @@
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
   </div>
+  
   <h2 id="display_head" th:text="${list_display}"></h2>
   <h1 class="yr">Your Reviews</h1>
   <script>var content = document.getElementById("display_head").innerHTML;
@@ -48,20 +49,33 @@
     };
 
     for(var j=0;j<hotel_name.length;j++){
+      var edit = document.createElement("a");
+      edit.innerHTML="<i class='fas fa-pen'></i>";
+      edit.setAttribute("href","update_display.html");
+      edit.setAttribute("onclick", "myUpdate("+j+")");
+      function myUpdate(i) {
+        var setcookie = "hot_name=" + hotel_name[i] + "~~," + user_name[i] + ";path=update_controller.html";
+        console.log(document.cookie);
+        document.cookie = setcookie;
+      }
+      var del = document.createElement("a");
+      del.innerHTML = "<i class='fas fa-trash'></i>";
+      del.setAttribute("onclick", "myDelete()")
       var element = document.getElementById(j);
       var head4 = document.createElement("h4");
       head4.setAttribute("class","hea4");
       head4.innerHTML=hotel_name[j];
-      
-    var rev_nc = document.createElement("p");
-    rev_nc.setAttribute("class","same");
-    var ul2 = document.createElement("ul");
-    var li4 = document.createElement("li");
-    li4.innerHTML = user_name[j]+"<br>"+user_comment[j];
-    li4.setAttribute("class","li4");
-    ul2.appendChild(li4);
-    element.appendChild(head4);
-    element.appendChild(ul2);
+      var rev_nc = document.createElement("p");
+      rev_nc.setAttribute("class","same");
+      var ul2 = document.createElement("ul");
+      var li4 = document.createElement("li");
+      li4.innerHTML = user_name[j]+"<br>"+user_comment[j];
+      li4.setAttribute("class","li4");
+      ul2.appendChild(li4);
+      element.appendChild(head4);
+      element.appendChild(ul2);
+      element.appendChild(edit);
+      element.appendChild(del);
       document.body.appendChild(element);
     };
     var myobj = document.getElementById("display_head");

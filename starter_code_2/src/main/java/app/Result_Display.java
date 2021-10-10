@@ -18,8 +18,9 @@ public class Result_Display implements Handler {
       Cookie cookie = cookies[0];
       UserResultServiceImpl userResultServiceImpl = new UserResultServiceImpl();
       ArrayList<String> display = userResultServiceImpl.getResultDetail(cookie.getValue());
-      display.add(context.sessionAttribute("username_id"));
+      display.add(context.sessionAttribute("username_id")+"~~");
       display.add(context.sessionAttribute("lo"));
+      System.out.println(display);
       System.out.println(context.sessionAttribute("username_id")+" I am the key");
       model.put("display", display);
       context.render(TEMPLATE,model);

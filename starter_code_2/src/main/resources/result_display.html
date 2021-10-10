@@ -44,9 +44,9 @@
     var ptype = column[13];
     var accomodates = column[15];
     var host = column[16];
-    var match = column[column.length-1].slice(8,14);
-    if(match==", xyz"){
-        var list_rname=column[column.length-1].slice(2,column[column.length-1].length-7);
+    var match = column[column.length-1];
+    if(match==", , xyz"){
+        var list_rname=column[column.length-2].slice(2);
         var past_rev = document.createElement("a");
         past_rev.setAttribute("id","allr");
         past_rev.setAttribute("href","reviews_display.html");

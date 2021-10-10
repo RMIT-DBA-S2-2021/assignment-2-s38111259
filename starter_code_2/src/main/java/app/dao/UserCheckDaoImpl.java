@@ -21,12 +21,6 @@ public class UserCheckDaoImpl {
         try {
          while (cursor.hasNext()) {
             Document record = cursor.next();
-            // String rec_name = record.get("name").toString();
-            // String rev_comment = record.get("reviews").toString();
-            // System.out.println(rev_comment);
-            // result.add(rec_name+"~~"+rev_name.get("reviewer_name"));
-            // result.add(rec_name);
-            // System.out.println(result);
             System.out.println("It is Valid");
             it_has=true;
          }

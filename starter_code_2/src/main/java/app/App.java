@@ -68,10 +68,14 @@ public class App {
       app.get(page_result.URL, new page_result());
       app.get(Result_Display.URL, new Result_Display());
       app.get(Review_Display.URL, new Review_Display());
+      app.get(Update_Display.URL, new Update_Display());
+      app.get(Update_controller.URL, new Update_controller());
       app.get(Logout.URL, new Logout());
 
       // Add / uncomment POST commands for any pages that need web form POSTS
       app.post(Home.URL, new Home());
       app.post(Validate_Login.URL, new Validate_Login());
+      app.post(Update_controller.URL, new Update_controller());
+
    }
 }
