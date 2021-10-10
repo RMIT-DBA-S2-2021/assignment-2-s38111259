@@ -39,6 +39,5 @@ public class Update_controller implements Handler {
          System.out.println("Else is working");
          context.render(TEMPLATE);
       }
-      context.render(TEMPLATE);
    }
 }
