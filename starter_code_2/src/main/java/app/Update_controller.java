@@ -18,7 +18,7 @@ public class Update_controller implements Handler {
       Map<String,String> model = new HashMap<>();
       Cookie[] cookies = context.req.getCookies();
       System.out.println(cookies.length+" cookies length");
-      System.out.println(cookies[0].getValue());
+      System.out.println(cookies[1].getValue());
       String values = cookies[1].getValue();
       String Rows[] = values.split("~~,");
 

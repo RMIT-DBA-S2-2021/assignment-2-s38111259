@@ -21,7 +21,8 @@ public class UserReviewListDaoImpl {
             for (Document docs_review : rec_reviews) {
                 String reviewer_name = (String) docs_review.get("reviewer_name");
                 String reviewer_comment = (String) docs_review.get("comments");
-                all_review_info=all_review_info + reviewer_name + "~~" + reviewer_comment + "~~";
+                String reviewer_id = (String) docs_review.get("reviewer_id");
+                all_review_info=all_review_info + reviewer_name + "~~" + reviewer_comment + "~~" + reviewer_id + "~~";
             }
             String hotel_name = record.get("name").toString();
             result.add(hotel_name+"~~"+all_review_info);

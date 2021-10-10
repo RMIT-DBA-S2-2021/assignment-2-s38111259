@@ -21,10 +21,19 @@
   <div class="top-container">
     <h1 class="cornerb"><i class="fas fa-spa"></i> airlite</h1>
   </div>
+
+  <div th:if="${del_msg}">          
+    <h4>Successfully Deleted</h4>
+  </div>
+
+  <div th:if="${not_del}">          
+    <h4>Review not Deleted</h4>
+  </div>
   
   <h2 id="display_head" th:text="${list_display}"></h2>
   <h1 class="yr">Your Reviews</h1>
-  <script>var content = document.getElementById("display_head").innerHTML;
+  <script>
+    var content = document.getElementById("display_head").innerHTML;
     var new_cont = content.slice(1, content.length-1);
     var Row = new_cont.split("~~, ");
     var hotel_name = [];
@@ -38,6 +47,7 @@
       hotel_name[name_counter] = column[0];
       user_name[name_counter] = column[1];
       user_comment[name_counter] = column[2];
+      user_id = column[3];
       name_counter++;
     };
 
@@ -54,13 +64,19 @@
       edit.setAttribute("href","update_display.html");
       edit.setAttribute("onclick", "myUpdate("+j+")");
       function myUpdate(i) {
-        var setcookie = "hot_name=" + hotel_name[i] + "~~," + user_name[i] + ";path=update_controller.html";
+        var setcookie = "hot_name=" + column[0] + "~~," + column[1] + ";path=update_controller.html";
         console.log(document.cookie);
         document.cookie = setcookie;
       }
       var del = document.createElement("a");
+      del.setAttribute("href","delete.html");
       del.innerHTML = "<i class='fas fa-trash'></i>";
-      del.setAttribute("onclick", "myDelete()")
+      del.setAttribute("onclick", "myDelete()");
+      function myDelete(i) {
+        var setcookie = "hot_name=" + column[0] + "~~," + column[1] + "~~," + column[3] +";path=delete.html";
+        console.log(document.cookie);
+        document.cookie = setcookie;
+      }
       var element = document.getElementById(j);
       var head4 = document.createElement("h4");
       head4.setAttribute("class","hea4");

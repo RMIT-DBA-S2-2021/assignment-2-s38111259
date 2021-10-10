@@ -69,6 +69,7 @@ public class App {
       app.get(Result_Display.URL, new Result_Display());
       app.get(Review_Display.URL, new Review_Display());
       app.get(Update_Display.URL, new Update_Display());
+      app.get(Delete.URL, new Delete());
       app.get(Update_controller.URL, new Update_controller());
       app.get(Logout.URL, new Logout());
 
